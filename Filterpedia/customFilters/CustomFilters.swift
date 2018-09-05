@@ -342,6 +342,13 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
             ])
         
         CIFilter.registerFilterName(
+            "HistogramEqualization",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
             "SimpleSky",
             constructor: CustomFiltersVendor(),
             classAttributes: [
@@ -356,7 +363,84 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
             ])
         
         CIFilter.registerFilterName(
-            "BokehFilter",
+            "HexagonalBokehFilter",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "MaskedVariableCircularBokeh",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "MaskedVariableHexagonalBokeh",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "CircularBokeh",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "EndsInContrastStretch",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "HomogeneousColorBlur",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "SimplePlasma",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "ConcentricSineWaves",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "Scatter",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "ScatterWarp",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "TransverseChromaticAberration",
+            constructor: CustomFiltersVendor(),
+            classAttributes: [
+                kCIAttributeFilterCategories: [CategoryCustomFilters]
+            ])
+        
+        CIFilter.registerFilterName(
+            "Flame",
             constructor: CustomFiltersVendor(),
             classAttributes: [
                 kCIAttributeFilterCategories: [CategoryCustomFilters]
@@ -462,6 +546,9 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
             
         case "ColorDirectedBlur":
             return ColorDirectedBlur()
+            
+        case "HomogeneousColorBlur":
+            return HomogeneousColorBlur()
 
         case "CMYKRegistrationMismatch":
             return CMYKRegistrationMismatch()
@@ -492,12 +579,45 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
             
         case "ContrastStretch":
             return ContrastStretch()
+            
+        case "HistogramEqualization":
+            return HistogramEqualization()
         
         case "SimpleSky":
             return SimpleSky()
             
         case "LensFlare":
             return LensFlare()
+            
+        case "CircularBokeh":
+            return CircularBokeh()
+            
+        case "MaskedVariableCircularBokeh":
+            return MaskedVariableCircularBokeh()
+            
+        case "MaskedVariableHexagonalBokeh":
+            return MaskedVariableHexagonalBokeh()
+            
+        case "EndsInContrastStretch":
+            return EndsInContrastStretch()
+            
+        case "SimplePlasma":
+            return SimplePlasma()
+            
+        case "ConcentricSineWaves":
+            return ConcentricSineWaves()
+            
+        case "Scatter":
+            return Scatter()
+            
+        case "ScatterWarp":
+            return ScatterWarp()
+            
+        case "TransverseChromaticAberration":
+            return TransverseChromaticAberration()
+            
+        case "Flame":
+            return Flame()
             
         case "MetalPixellateFilter":
             #if !arch(i386) && !arch(x86_64)
@@ -520,9 +640,9 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
                 return nil
             #endif
 
-        case "BokehFilter":
+        case "HexagonalBokehFilter":
             #if !arch(i386) && !arch(x86_64)
-                return BokehFilter()
+                return HexagonalBokehFilter()
             #else
                 return nil
             #endif
